@@ -141,10 +141,10 @@ Our [NGINX Ingress chart](../charts/nginx/index.md) was altered from the upstrea
 
 ### Kubernetes version used throughout Chart
 
-To maximize support for different Kubernetes versions, use a `kubectl` that's 
+To maximize support for different Kubernetes versions, use a `kubectl` that's
 one minor version lower than the current stable release of Kubernetes.
 This should allow support for at least three, and quite possibly more
-Kubernetes minor versions. For further discussion on `kubectl` versions, see 
+Kubernetes minor versions. For further discussion on `kubectl` versions, see
 [issue 1509].
 
 [kubectl]: https://gitlab.com/gitlab-org/build/CNG/tree/master/kubectl
