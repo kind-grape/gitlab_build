@@ -141,14 +141,11 @@ Our [NGINX Ingress chart](../charts/nginx/index.md) was altered from the upstrea
 
 ### Kubernetes version used throughout Chart
 
-Given that the GitLab application could be installed on a wide range of
-Kubernetes versions the [kubectl] container needs to support as many
-Kubernetes versions as possible. It is desired to keep the `kubectl`
-version one minor version lower than the current stable release of
-Kubernetes. This should allow at a minimum a coverage of three minor
-versions, but in most cases a larger range of Kubernetes versions should
-be supported. Further discussion concerning the `kubectl` version to be
-used can be found in [issue 1509].
+To maximize support for different Kubernetes versions, use a `kubectl` that's 
+one minor version lower than the current stable release of Kubernetes.
+This should allow support for at least three, and quite possibly more
+Kubernetes minor versions. For further discussion on `kubectl` versions, see 
+[issue 1509].
 
 [kubectl]: https://gitlab.com/gitlab-org/build/CNG/tree/master/kubectl
 [issue 1509]: https://gitlab.com/gitlab-org/charts/gitlab/issues/1509
