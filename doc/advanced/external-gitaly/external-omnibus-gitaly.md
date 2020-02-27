@@ -37,6 +37,7 @@ prometheus['enable'] = false
 unicorn['enable'] = false
 sidekiq['enable'] = false
 gitlab_workhorse['enable'] = false
+prometheus['monitor_kubernetes'] = false
 
 # Prevent database connections during 'gitlab-ctl reconfigure'
 gitlab_rails['rake_cache_clear'] = false
