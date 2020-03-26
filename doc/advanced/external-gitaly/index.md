@@ -23,7 +23,7 @@ Items below can be further customized if you are not using the defaults:
 - `global.gitaly.port`: The port the service is available on, defaults to `8075`
 
 ```
-helm install .  \
+helm install ...  \
   --set global.gitaly.enabled=false \
   --set global.gitaly.host=gitaly.example \
   --set global.gitaly.authToken.secret=gitaly-secret \

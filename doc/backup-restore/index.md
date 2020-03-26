@@ -22,7 +22,7 @@ The task-runner uses `s3cmd` to connect to object storage. In order to configure
 It should look like this:
 
 ```sh
-helm install gitlab \
+helm install ... \
   --set gitlab.task-runner.backups.objectStorage.config.secret=my-s3cfg \
   --set gitlab.task-runner.backups.objectStorage.config.key=config .
 ```
@@ -55,7 +55,7 @@ kubectl create secret generic storage-config --from-file=config=storage.config
 Configure your Helm chart as follows to use the service account key to authenticate to GCS for backups:
 
 ```sh
-helm install gitlab . \
+helm install ... \
   --set gitlab.task-runner.backups.objectStorage.config.secret=storage-config \
   --set gitlab.task-runner.backups.objectStorage.config.key=config \
   --set gitlab.task-runner.backups.objectStorage.config.gcpProject=my-gcp-project-id \

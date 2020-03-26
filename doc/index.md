@@ -24,7 +24,7 @@ can be installed separately.
   - GitLab/[Sidekiq](charts/gitlab/sidekiq/index.md)
   - GitLab/[Unicorn](charts/gitlab/unicorn/index.md)
 - Optional dependencies:
-  - [PostgreSQL](https://hub.helm.sh/charts/stable/redis)
+  - [PostgreSQL](https://hub.helm.sh/charts/stable/postgresql)
   - [Redis](https://hub.helm.sh/charts/stable/redis)
   - [MinIO](charts/minio/index.md)
 - Optional additions:
@@ -110,13 +110,13 @@ For more detailed information see [Upgrading](installation/upgrade.md).
 To uninstall the GitLab Chart, run the following:
 
 ```sh
-helm delete gitlab
+helm uninstall gitlab
 ```
 
-NOTE: **Note:** With Helm v2, you should add the `--purge` argument to the `delete` command.
+> **Note:** With Helm v2, you need to use the command `helm delete --purge gitlab`.
 
 For the purposes of continuity, these charts have some Kubernetes objects that
-are not removed when performing `helm delete`. These are items we require you to
+are not removed when performing `helm uninstall`. These are items we require you to
 _conciously_ remove them, as they affect re-deployment should you chose to.
 
 - PVCs for stateful data, which you must _consciously_ remove
@@ -190,8 +190,10 @@ they map to, issue the following command with [Helm](installation/tools.md#helm)
 
 ```shell
 helm repo add gitlab https://charts.gitlab.io/
-helm search -l gitlab/gitlab
+helm search repo -l gitlab/gitlab
 ```
+
+> **Note**: With Helm v2, the search command would be `helm search -l gitlab/gitlab`
 
 For more information, visit the [version mappings docs](installation/version_mappings.md).
 

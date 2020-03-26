@@ -146,8 +146,11 @@ minikube dashboard --url
 
 ## Hooking Helm to Minikube
 
-Once your Minikube is up and running, you can hook [Helm](https://helm.sh/)
-to it with `helm init`.
+If you are using Helm v2, then once your Minikube is up and running, you
+can initialize Helm with the command `helm init`.
+
+Using Helm v3 does not require any initialization commands and will work
+out of the box.
 
 For further details on Helm, see [Developing for Helm](../../installation/tools.md#helm).
 
@@ -175,9 +178,13 @@ as a base.
 helm repo add gitlab https://charts.gitlab.io/
 helm repo update
 helm upgrade --install gitlab gitlab/gitlab \
-  --timeout 600 \
+  --timeout 600s \
   -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube.yaml
 ```
+
+NOTE: **Note**:
+If using Helm v2, please see notes about the `--timeout` option
+in the [Deployment documentation](../../installation/deployment.md#deploy-using-helm).
 
 ### Deploying GitLab with minimal settings
 
@@ -189,9 +196,13 @@ as a reasonable base.
 helm repo add gitlab https://charts.gitlab.io/
 helm repo update
 helm upgrade --install gitlab gitlab/gitlab \
-  --timeout 600 \
+  --timeout 600s \
   -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml
 ```
+
+NOTE: **Note**:
+If using Helm v2, please see notes about the `--timeout` option
+in the [Deployment documentation](../../installation/deployment.md#deploy-using-helm).
 
 If the output of `minikube ip` was not `192.168.99.100`, add these arguments to override the IP endpoints in the example configuration files:
 
