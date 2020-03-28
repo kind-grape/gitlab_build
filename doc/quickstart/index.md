@@ -50,6 +50,28 @@ For this guide, we'll make use of the latest release of Helm v3 (v3.0.2 or newer
 [Official installation instructions](https://helm.sh/docs/intro/install/)
 exist, and are sound, so we'll let you follow those.
 
+## Helm stable and other repositories
+
+Helm v3 does not ship with connection information for the stable repository.
+Before attempting install any charts the repository needs to be added with
+the following command.
+
+```
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+```
+
+NOTE: **Note**:
+If using Helm v2, the stable repository is installed by Helm automatically.
+There are no adverse effects if it is added again.
+
+In addition to the stable repository, the GitLab Helm chart uses the
+Jetstack.io repository to retrieve the `cert-manager` Helm chart. It will
+need to be added for both Helm v2 and Helm v3.
+
+```
+helm repo add jetstack https://charts.jetstack.io/
+```
+
 ## Adding the GitLab Helm repository
 
 First and foremost, we have to be able to install `gitlab/gitlab`. In order

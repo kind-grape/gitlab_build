@@ -39,6 +39,7 @@ To deploy the GitLab Helm Chart, follow the instructions described [here](https:
 Here's a light way to install it:
 
 ```shell
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo add gitlab https://charts.gitlab.io/
 helm repo update
 helm upgrade --install gitlab gitlab/gitlab \
@@ -47,6 +48,11 @@ helm upgrade --install gitlab gitlab/gitlab \
   --set global.hosts.externalIP=<external-ip> \
   --set certmanager-issuer.email=<email>
 ```
+
+NOTE: **Note**:
+If using Helm v2, the stable repository is installed by Helm automatically.
+There are no adverse effects if it is added again.
+
 NOTE: **Note**:
 If using Helm v2, please see notes about the `--timeout` option
 in the [Deployment documentation](../installation/deployment.md#deploy-using-helm).

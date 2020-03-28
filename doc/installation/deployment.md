@@ -230,6 +230,7 @@ Helm v2 syntax differs every effort is made to provide a note that details
 the difference.
 
 ```
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo add gitlab https://charts.gitlab.io/
 helm repo update
 helm upgrade --install gitlab gitlab/gitlab \
@@ -238,6 +239,9 @@ helm upgrade --install gitlab gitlab/gitlab \
   --set global.hosts.externalIP=10.10.10.10 \
   --set certmanager-issuer.email=me@example.com
 ```
+NOTE: **Note**:
+If using Helm v2, the stable repository is installed by Helm automatically.
+There are no adverse effects if it is added again.
 
 NOTE: **Note**:
 If `helm install` is used there is a slight difference in the way
